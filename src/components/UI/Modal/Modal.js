@@ -21,11 +21,7 @@ const modal = React.memo(props => {
 });
 
 function areEqual(prevProps, nextProps) {
-    if(prevProps.show === nextProps.show){
-        return true;
-    }else{
-        return false
-    }
+    return prevProps.show === nextProps.show && prevProps.children === nextProps.children;
 }
 
 
