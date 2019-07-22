@@ -27,7 +27,6 @@ class BurgerBuilder extends Component {
     };
 
     componentDidMount() {
-        console.log(this.props);
         axios.get('/ingredients')
             .then(response => {
                 const data = response.data['hydra:member'];
