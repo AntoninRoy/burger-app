@@ -15,7 +15,8 @@ class Orders extends Component {
                 const fetchedOrders = [];
                 for(let key in response.data["hydra:member"]){
                     fetchedOrders.push({
-                        ...JSON.parse(response.data["hydra:member"][key].ingredients),
+                        ingredients : JSON.parse(response.data["hydra:member"][key].ingredients),
+                        price : response.data["hydra:member"][key].price,
                         id : key
                     });
                 }
@@ -29,8 +30,12 @@ class Orders extends Component {
     render(){
         return(
             <div>
-                <Order/>
-                <Order/>
+                {this.state.orders.map(order =>(
+                    <Order
+                        key = {order.id}
+                        ingredients = {order.ingredients}
+                        price = {order.price} />
+                ))}
             </div>
         );
     }
