@@ -10,7 +10,7 @@ class Orders extends Component {
         loading : true
     }
     componentDidMount() {
-        axios.get('/commands')
+        axios.get(' http://127.0.0.1:8000/api/commands')
             .then(response => {
                 const fetchedOrders = [];
                 for(let key in response.data["hydra:member"]){

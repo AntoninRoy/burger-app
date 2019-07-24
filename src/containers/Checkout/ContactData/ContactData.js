@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Button from '../../../components/UI/Button/Button';
 import classes from './ContactData.module.css';
-import axios from '../../../axios-orders';
+import axios from "../../../axios-orders";
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import {connect} from "react-redux";
 
 class ContactData extends Component {
     state = {
@@ -21,7 +22,7 @@ class ContactData extends Component {
 
         this.setState({loading: true});
         const order = {
-            "ingredients" : JSON.stringify(this.props.ingredients),
+            "ingredients" : JSON.stringify(this.props.ings),
             "price" : this.props.price,
             "delivryMethod" : "fastest",
             "customer" : "Antonin",
@@ -33,13 +34,14 @@ class ContactData extends Component {
         };
         console.log(order);
 
-        axios.post('commands',order)
+        axios.post('http://127.0.0.1:8000/api/commands',order)
             .then(response => {
                 this.setState({loading: false});
                 this.props.history.push('/');
 
             })
             .catch(error => {
+                console.log(error);
                 this.setState({loading: false})
             });
 
@@ -66,4 +68,11 @@ class ContactData extends Component {
     }
 }
 
-export default ContactData;
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients,
+        price: state.totalPrice,
+    };
+}
+
+export default connect(mapStateToProps, null)(ContactData);
