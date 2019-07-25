@@ -95,29 +95,8 @@ class ContactData extends Component {
             }
         },
         formIsValid: false
-    }
+    };
 
-    /*
-    orderHandler = (e) => {
-        e.preventDefault();
-        this.props.history.push('/');
-
-        this.setState({loading: true});
-        const order = {
-            "ingredients" : JSON.stringify(this.props.ings),
-            "price" : this.props.price,
-            "delivryMethod" : this.state.orderForm.deliveryMethod.value,
-            "customer" : this.state.orderForm.name.value,
-            "adress" : {
-                "street" : this.state.orderForm.street.value,
-                "zipcode" : this.state.orderForm.zipCode.value,
-                "country" : this.state.orderForm.country.value
-            }
-        };
-
-
-
-    }*/
 
     orderHandler = ( event ) => {
         event.preventDefault();
@@ -189,7 +168,7 @@ class ContactData extends Component {
             formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
         }
         this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
-    }
+    };
 
     render () {
         console.log("reload");
