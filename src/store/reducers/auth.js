@@ -16,7 +16,7 @@ const authStart = (state,action) =>{
 const authSuccess = (state,action) =>{
     return updateObject((state,{
         token : action.token,
-        userId : 99999,
+        userId : action.userId,
         error : null,
         loading : false
     }))
@@ -24,16 +24,22 @@ const authSuccess = (state,action) =>{
 
 const authFail = (state ,action) =>{
     return updateObject((state,{
-        error : action.message,
+        error : action.error,
         loading : false
     }))
 };
+
+const authLogout =(state,action) =>{
+    return updateObject(state,{ token : null, userId : null })
+}
+
 
 const reducer = (state= initialSate ,action) => {
     switch(action.type){
         case actionTypes.AUTH_START : return authStart(state,action);
         case actionTypes.AUTH_SUCCESS : return authSuccess(state,action);
         case actionTypes.AUTH_FAIL : return authFail(state,action);
+        case actionTypes.AUTH_LOGOUT : return authLogout(state,action)
         default : return state;
     }
 };

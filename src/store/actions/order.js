@@ -22,10 +22,14 @@ export const purchaseBurgerStart = () => {
     };
 };
 
-export const purchaseBurger=(orderData) => {
+export const purchaseBurger=(orderData,token) => {
     return dispatch => {
+        var config = {
+            headers: {'Authorization': "bearer " + token}
+        };
+
         dispatch(purchaseBurgerStart());
-        axios.post('/commands',orderData)
+        axios.post('/commands',orderData,config)
             .then(response => {
                 console.log(response)
                 dispatch(purchaseBurgerSuccess(response.data.id,orderData));
@@ -62,10 +66,14 @@ export const fetchOrdersStart = () => {
     };
 };
 
-export const fetchOrders = () => {
+export const fetchOrders = (token) => {
     return dispatch => {
+        var config = {
+            headers: {'Authorization': "bearer " + token}
+        };
+
         dispatch(fetchOrdersStart());
-        axios.get('/commands')
+        axios.get('/commands',config)
             .then(response => {
                 const fetchedOrders = [];
                 for(let key in response.data["hydra:member"]){

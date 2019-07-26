@@ -1,17 +1,31 @@
 import *as actionTypes from './actionsTypes';
 import axios from '../../axios-orders';
-import {fetchIngredientFailed, setIngredients} from "./burgerBuilder";
+import {updateObject} from "../utility";
 
+export const checkAuthTimeout= (expirationTime) => {
+    return dispatch => {
+        setTimeout(()=>{
+            dispatch(logout());
+        },expirationTime*1000);
+    }
+};
 export const authStart = () => {
     return {
         type : actionTypes.AUTH_START
     };
 };
 
-export const authSuccess = (authData) => {
+export const logout =() => {
+    return {
+        type : actionTypes.AUTH_LOGOUT
+    };
+}
+
+export const authSuccess = (token, userId) => {
     return {
         type : actionTypes.AUTH_SUCCESS,
-        authData : authData
+        token : token,
+        userId : userId
     };
 };
 
@@ -21,6 +35,8 @@ export const authFail = (error) => {
         error : error
     };
 };
+
+
 
 export  const auth =(email,password,isSignup) => {
     return dispatch => {
@@ -40,11 +56,20 @@ export  const auth =(email,password,isSignup) => {
         }
         axios.post(url,authData)
             .then(response => {
-                dispatch(authSuccess(response.data));
+                if(!isSignup){
+                    dispatch(authSuccess(response.data.token, response.data.data.id));
+                    dispatch(checkAuthTimeout(response.data.data.expiresIn))
+                }else{
+                    dispatch(authSuccess("notoken", "45"));
+
+
+
+                }
+
                 console.log(response);
             })
             .catch(error =>{
-               dispatch(authFail(error.response));
+               dispatch(authFail(error.response.data));
                console.log(error.response)
             });
     }
