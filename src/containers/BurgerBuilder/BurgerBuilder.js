@@ -25,7 +25,6 @@ class BurgerBuilder extends Component {
     }
 
 
-
     //cette syntaxe fonction seulement s'il est n'est pas assignée à un event
     updatePurchaseState (ingredients){
         const sum = Object.keys(ingredients)
@@ -42,6 +41,7 @@ class BurgerBuilder extends Component {
         if(this.props.token){
             this.setState({purchasing: true })
         }else{
+            this.props.onSetAuthRedirectPath('/checkout');
             this.props.history.push('/auth');
         }
 
@@ -119,6 +119,7 @@ const mapDispatchToProps = dispatch => {
         onIngredientRemoved: (ingName) => dispatch(actions.removeIngredient(ingName)),
         onInitIngredients: () => dispatch(actions.initIngredients()),
         onInitPurchase: () => dispatch(actions.purchaseInit()),
+        onSetAuthRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path))
     }
 };
 
