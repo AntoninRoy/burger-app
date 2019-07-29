@@ -1,10 +1,10 @@
 import *as actionTypes from './actionsTypes';
 import axios from '../../axios-orders';
-import {updateObject} from "../utility";
 
 export const checkAuthTimeout= (expirationTime) => {
     return dispatch => {
         setTimeout(()=>{
+            console.log("ICI DANS LE TIMEOUT");
             dispatch(logout());
         },expirationTime*1000);
     }
@@ -16,11 +16,9 @@ export const authStart = () => {
 };
 
 export const logout =() => {
-
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
     localStorage.removeItem('userId');
-
 
     return {
         type : actionTypes.AUTH_LOGOUT
@@ -63,7 +61,7 @@ export  const auth =(email,password,isSignup) => {
         axios.post(url,authData)
             .then(response => {
                 if(!isSignup){
-                    const expirationDate = new Date(new Date().getTime() + response.data.data.id*1000);
+                    const expirationDate = new Date(new Date().getTime()+ parseInt(response.data.data.expiresIn)*1000);
 
                     localStorage.setItem('token', response.data.token);;
                     localStorage.setItem('expirationDate',expirationDate);
@@ -91,7 +89,6 @@ export const setAuthRedirectPath =(path) => {
 export const authCheckState = () => {
     return dispatch => {
         const token = localStorage.getItem('token');
-        console.log("token : ",token)
         if(!token){
             dispatch(logout());
         }else{
@@ -101,7 +98,7 @@ export const authCheckState = () => {
             }else{
                 const userId = localStorage.getItem('userId');
                 dispatch(authSuccess(token,userId));
-                dispatch(checkAuthTimeout(expirationDate.getTime()- new Date().getTime()))
+                dispatch(checkAuthTimeout((expirationDate.getTime()- new Date().getTime())/1000))
             }
 
         }
