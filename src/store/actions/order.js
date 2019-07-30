@@ -35,6 +35,7 @@ export const purchaseBurger=(orderData,token) => {
                 dispatch(purchaseBurgerSuccess(response.data.id,orderData));
             })
             .catch(error => {
+
                 dispatch(purchaseBurgerFail(error));
             });
     };

@@ -42,6 +42,7 @@ export const initIngredients =() => {
                dispatch(setIngredients(ingredients));
             })
             .catch(error =>{
+                console.log(error);
                 dispatch(fetchIngredientFailed());
             });
     };

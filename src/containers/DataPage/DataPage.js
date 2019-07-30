@@ -92,6 +92,18 @@ class DataPage extends Component {
                 autre : "rien"
             },
             {
+                name : "Lorie",
+                lastname :"Fice",
+                age : "20",
+                autre : "rien"
+            },
+            {
+                name : "Same",
+                lastname :"Féchier",
+                age : "47",
+                autre : "rien"
+            },
+            {
                 name : "Jean",
                 lastname :"Balle",
                 age : "82",
@@ -119,6 +131,24 @@ class DataPage extends Component {
                 name : "Jean",
                 lastname :"Balle",
                 age : "82",
+                autre : "rien"
+            },
+            {
+                name : "Alain",
+                lastname :"Posteur",
+                age : "35",
+                autre : "rien"
+            },
+            {
+                name : "Lorie",
+                lastname :"Fice",
+                age : "20",
+                autre : "rien"
+            },
+            {
+                name : "Same",
+                lastname :"Féchier",
+                age : "47",
                 autre : "rien"
             }
 
