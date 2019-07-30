@@ -6,26 +6,11 @@
     font-family: 'Nanum Gothic', sans-serif;
   }
 
-  h1{
-      width: auto;
-      text-align: center;
-      vertical-align: center;
-      height : 40px;
-      margin : 10px 20px 10px 20px;
-      padding : 20px 0 25px 0px;
-      color : white;
-      font-weight: normal;
-      border-bottom : 1px solid #317427;
-  }
+  
   .wrapper{
     display : flex;
   }
-  .sidebar{
-    flex-basis: 300px;
-    height: 100vh;
-    /*background-image: linear-gradient(to bottom, #69c25c, #65b84b, #62ae3a, #5fa526, #5c9b0a);*/
-    background-color: #A3CA2A
-  }
+
   .main-content{
     flex : 6;
     height:   100vh;
@@ -65,42 +50,105 @@
   }
 
   button {
-    background-color: #A3CA2A;    box-shadow: none;
     border : none;
-    color : white;
     border-radius: 4px;
     min-width: 100px;
     padding : 0 20px;
-    cursor: pointer
-  }
-
-  button:hover{
-    background-color: #B7CA79
+    cursor: pointer;
+    height : 40px;
+    color : white
   }
 
   button.grey{
-    background-color: #9B9B9B;
+    background-color: #616161;
   }
 
   button.grey:hover{
-    background-color: #424242;
+    background-color: #EEEEEE;
+    color :#616161; 
+    border : 1px solid #616161;
+
   }
 
   button.red{
-    background-color: #ED5434;
+    background-color: #b71c1c;
   }
 
   button.red:hover{
-    background-color: #ED7D66;
+    background-color: #ffcdd2;
+    color :#b71c1c; 
+    border : 1px solid #b71c1c;
+
   }
 
-  button.purple{
-    background-color: #6089CC;
+  button.blue{
+    background-color: #0D47A1;
   }
 
-  button.purple:hover{
-    background-color: #B0C4E6;
+  button.blue:hover{
+    background-color: #BBDEFB;
+    border : 1px solid #0D47A1;
+    color : #0D47A1
+
   }
+
+  button.orange{
+    background-color: #F57F17;
+  }
+
+  button.orange:hover{
+    background-color: #FFF9C4;
+    border : 1px solid #F57F17;
+    color : #F57F17
+  }
+
+  button.green{
+    background-color: #1B5E20;
+  }
+
+  button.green:hover{
+    background-color: #C8E6C9;
+    border : 1px solid #1B5E20;
+    color : #1B5E20
+  }
+
+
+
+  .alert{
+    padding : 30px;
+    border-radius: 4px;
+    margin : 20px 0;
+  }
+  .red-alert {
+    color :#b71c1c; 
+    border : 1px solid #b71c1c;
+    background-color : #ffcdd2;
+    
+  }
+
+  .blue-alert {
+    color :#0D47A1; 
+    border : 1px solid #0D47A1;
+    background-color : #BBDEFB;
+  }
+
+  .green-alert {
+    color :#1B5E20; 
+    border : 1px solid #1B5E20;
+    background-color : #C8E6C9;
+  }
+  .orange-alert {
+    color :#F57F17; 
+    border : 1px solid #F57F17;
+    background-color : #FFF9C4;
+  }
+  .grey-alert {
+    color :#616161; 
+    border : 1px solid #616161;
+    background-color : #EEEEEE;
+  }
+
+
 
 
 
@@ -146,8 +194,7 @@
       bottom : 0;
       height : 60px;
       width: 100%;
-    background-image: linear-gradient(to bottom, #69c25c, #65b84b, #62ae3a, #5fa526, #5c9b0a);
-        justify-content: space-evenly;
+      background-color: #A3CA2A;        justify-content: space-evenly;
   }
 
   .footer a i {
@@ -163,15 +210,36 @@
   }
   
   .content{
-    padding : 50px 20px 0 20px;
+    padding : 20px 20px 0 20px;
   }
+
+  .sidebar{
+    flex-basis: 300px;
+    height: 100vh;
+    background-color: #236ea6;
+    /*background-image: linear-gradient(to bottom, #69c25c, #65b84b, #62ae3a, #5fa526, #5c9b0a);*/
+    /*background-image: linear-gradient(to bottom, #607d8b, #417798, #236ea6, #1f62b1, #3f51b5);*/
+  }
+
+  h1{
+    width: auto;
+    text-align: center;
+    vertical-align: center;
+    height : 40px;
+    margin : 10px 20px 10px 20px;
+    padding : 20px 0 25px 0px;
+    color : black;
+  
+    border-bottom : 1px solid black;
+}
+
 
   .nav-item {
       padding : 20px;
   }
 
   .nav-item:hover{
-    background-color: #317427;
+    background-color: #BDBDBD;
   }
 
 
@@ -180,7 +248,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color : white;
+    color : black;
     margin : 0px;
     padding : 20px 30px;
     text-decoration: none;
@@ -190,7 +258,7 @@
   }
 
   .nav a:hover{
-    background-color: #B7CA79;
+    background-color: #B0BEC5;
   }
 
  

@@ -6,6 +6,8 @@ import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Checkout from './containers/Checkout/Checkout';
 import Orders from './containers/Orders/Orders';
 import Auth from './containers/Auth/Auth';
+import DataPage from './containers/DataPage/DataPage';
+
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from "./store/actions";
 
@@ -18,9 +20,10 @@ class  App extends Component {
     render(){
         let routes = (
             <Switch>
+                <Route path='/data' component = {DataPage }/>
                 <Route  path="/auth" component={ Auth }/>
                 <Route  path="/" exact component={ BurgerBuilder }/>
-                <Redirect to ='/'/>
+                <Redirect to ='/data'/>
             </Switch>
         );
 

@@ -1,0 +1,166 @@
+
+.Table{
+    margin : 0 20px;
+}
+.Table table.table {
+    width: 100%;
+    border-spacing : 0;
+    font-size: 0.9em;
+    color : #212529;
+}
+
+.Table .table th, .table td {
+    text-align: left;
+    padding: 20px;
+    border-left: 1px solid rgb(222, 226, 230);
+    border-top: 1px solid rgb(222, 226, 230);
+}
+
+.Table .table th:last-of-type, .table td:last-of-type {
+    border-right :  1px solid rgb(222, 226, 230);
+}
+
+.Table tr:last-of-type td {
+  border-bottom: 1px solid rgb(222, 226, 230);
+}
+
+.Table tbody tr:nth-child(2n+1){
+    background-color: #F2F2F2
+}
+
+.Table .footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.Table .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Table .search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Table .search input{
+    margin-left: 20px;
+    border-radius: 4px;
+    border : 1px solid rgb(222, 226, 230);
+    height : 30px;
+    padding-left : 10px
+}
+
+.Table .entries {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Table .showing{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Table .pagination{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Table .pagination button{
+    color : black;
+    margin : 0 0px;
+    background-image:none;
+    background-color: transparent;
+    /*background-color: #4285F4;*/
+    border : none;
+    height : 30px;
+    width: 30px;
+    border-radius: 1px;
+    cursor : pointer;
+    font:inherit;
+}
+
+.Table .pagination button:first-of-type,.Table .pagination button:last-of-type{
+    width: 80px;
+ }
+.Table .pagination button:active,.Table .pagination button:focus{
+    background-color: #4285F4;
+    box-shadow: none;
+    border : none;
+    color : #FFF;
+    outline: none;
+}
+.Table .pagination button:hover{
+    background-color: lightgrey;
+    color : black
+}
+
+/* Remove IE arrow */
+.Table select::-ms-expand {
+    display: none;
+}
+/* Custom Select */
+.Table .select {
+    position: relative;
+    display: flex;
+    width: 100px;
+    height: 30px;
+    line-height: 3;
+    overflow: hidden;
+    border:none;
+
+}
+.Table select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+
+    background-image: none;
+    border-radius: 4px;
+    flex: 1;
+    padding: 0 20px;
+    color: black;
+    cursor: pointer;
+
+    margin : 0 10px;
+
+    border: 1px solid rgb(222, 226, 230);
+}
+/* Arrow */
+.Table .select::after {
+    content: '\25BC';
+    font-size: 0.8em;
+    position: absolute;
+    top: -4px ;
+    right: 5px;
+    height : 0.8em;
+    padding: 0 1em;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+    color : #7c7c7c;
+}
+/* Transition */
+.Table .select:hover::after {
+    color: grey;
+}
+
+@media (max-width: 500px) {
+    .Table .footer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Table .header {
+        flex-direction: column;
+        align-items: center;
+    }
+}
